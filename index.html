@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+body {
+margin: 0;
+font-family: 'Poppins', sans-serif;
+background: linear-gradient(to bottom, #1e1e2f, #3a3a5f);
+color: white;
+text-align: center;
+overflow-x: hidden;
+}
+
+.container {
+padding: 20px;
+max-width: 500px;
+margin: auto;
+}
+
+h1 {
+font-weight: 500;
+margin-top: 40px;
+font-size: 2em;
+}
+
+.message {
+background: rgba(255,255,255,0.08);
+padding: 18px;
+border-radius: 15px;
+margin: 20px 0;
+backdrop-filter: blur(10px);
+font-size: 1em;
+line-height: 1.6;
+}
+
+button {
+padding: 12px 25px;
+border: none;
+border-radius: 25px;
+background: #ff6b81;
+color: white;
+font-size: 15px;
+margin: 15px 0;
+}
+
+.gallery {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 10px;
+}
+
+.gallery img {
+width: 100%;
+border-radius: 12px;
+}
+
+.timeline {
+text-align: left;
+font-size: 0.95em;
+opacity: 0.9;
+}
+
+/* Balloons */
+.balloon {
+position: fixed;
+bottom: -120px;
+width: 40px;
+height: 55px;
+border-radius: 50%;
+opacity: 0.6;
+animation: floatUp 15s linear infinite;
+}
+
+@keyframes floatUp {
+to {
+transform: translateY(-120vh);
+}
+}
+
+/* Confetti */
+.confetti {
+position: fixed;
+width: 6px;
+height: 6px;
+opacity: 0.6;
+animation: fall 10s linear infinite;
+}
+
+@keyframes fall {
+to {
+transform: translateY(110vh) rotate(360deg);
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Hey Vanshika❤️</h1>
+
+<div class="message">
+<p id="typewriter"></p>
+</div>
+
+<button onclick="startExperience()">Open this when you need it 💌</button>
+
+<div id="letter" class="message" style="display:none;">
+<p>
+I know things have been a little heavy for you lately.
+And maybe you don’t feel like yourself right now.
+
+But from where I stand, nothing about you has changed.
+You’re still the same person I fell for.
+
+It’s been 65 months and not once have I felt like I chose wrong.
+
+You don’t have to have everything figured out.
+You don’t have to be strong all the time.
+
+Just be you. That’s already more than enough for me.
+
+And I’m here. Always ❤️
+</p>
+</div>
+
+<h2>Our Journey ⏳</h2>
+
+<div class="timeline">
+<p><b>27 Nov 2020</b> — The day everything quietly started.</p>
+<p>Somewhere between random conversations and small moments, you became important.</p>
+<p>And then without realizing… you became my person.</p>
+<p><b>65 months later</b> — and somehow, I still feel the same and even more.</p>
+<p>Through everything, I still choose you. Every single day.</p>
+</div>
+
+<h2>Us 📸</h2>
+
+<div class="gallery">
+<img src="photo1.jpg">
+<img src="photo2.jpeg">
+<img src="photo3.jpeg">
+<img src="photo4.jpg">
+</div>
+
+</div>
+
+<!-- Music -->
+<audio id="bgMusic" loop>
+<source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+/* Typewriter text */
+const text = "I don’t know if you realize this, but you mean a lot more than you think. Even on your worst days, nothing about you becomes less for me. You’re still the same person I care about… maybe even more.";
+
+let i = 0;
+function typing() {
+if (i < text.length) {
+document.getElementById("typewriter").innerHTML += text.charAt(i);
+i++;
+setTimeout(typing, 35);
+}
+}
+typing();
+
+/* Button click = music + letter */
+function startExperience() {
+document.getElementById("letter").style.display = "block";
+document.getElementById("bgMusic").play();
+}
+
+/* Balloons */
+for(let i=0;i<6;i++){
+let b=document.createElement("div");
+b.classList.add("balloon");
+b.style.left=Math.random()*100+"vw";
+b.style.background=["#ff6b81","#f8a5c2","#fbc531"][Math.floor(Math.random()*3)];
+b.style.animationDuration=(12+Math.random()*6)+"s";
+document.body.appendChild(b);
+}
+
+/* Confetti */
+for(let i=0;i<25;i++){
+let c=document.createElement("div");
+c.classList.add("confetti");
+c.style.left=Math.random()*100+"vw";
+c.style.background=["#ff6b81","#ffffff","#fbc531"][Math.floor(Math.random()*3)];
+c.style.animationDuration=(8+Math.random()*5)+"s";
+document.body.appendChild(c);
+}
+
+</script>
+
+</body>
+</html>
